@@ -1,0 +1,150 @@
+/* La carte centrale avec l'effet Glassmorphism */
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    background: #ffffffcc; /* Blanc semi-transparent */
+    backdrop-filter: blur(6px); /* Effet flou derrière la carte */
+    padding: 2.5rem 3rem;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(60, 40, 120, 0.18);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.form-container h1 {
+    font-size: 1.9em;
+    margin-top: 0;
+    margin-bottom: 1.8rem;
+    color: #4b2c7a;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #d2bdf5;
+    margin: 1.5rem 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #5a3a8a;
+}
+
+/* Champs de texte et listes déroulantes */
+input[type="text"],
+select {
+    font-family: inherit;
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid #d2bdf5;
+    background: #faf7ff;
+    font-size: 0.95rem;
+    color: #3b2a5c;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    box-sizing: border-box;
+}
+
+/* Effet lumineux au clic dans le champ */
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #9b6bff;
+    box-shadow: 0 0 0 3px rgba(155, 107, 255, 0.25);
+    background: #ffffff;
+}
+
+input::placeholder {
+    color: #b89af5;
+}
+
+select {
+    cursor: pointer;
+}
+
+option {
+    background-color: #ffffff;
+    color: #3b2a5c;
+}
+
+/* Zone d'ajout d'image */
+.image-upload-zone {
+    background: #faf7ff;
+    border: 1px dashed #9b6bff;
+    color: #5a3a8a;
+    padding: 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.image-upload-zone:hover {
+    border-color: #9b6bff;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(155, 107, 255, 0.25);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* Bouton Envoyer du formulaire */
+.btn-submit-container {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.btn-submit,
+input[type="button"],
+input[type="submit"] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(135deg, #9b6bff, #c58bff);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(120, 70, 200, 0.35);
+    transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+}
+
+.btn-submit:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px rgba(120, 70, 200, 0.45);
+    filter: brightness(1.03);
+}
+
+/* Messages et Textes secondaires */
+#message {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #9b6bff;
+}
+
+.footer-note {
+    font-size: 0.85em;
+    color: #6a4a9a;
+    text-align: center;
+    margin-top: 1.2rem;
+}
+
+.separator-ou {
+    color: #6a4a9a;
+    font-size: 0.85rem;
+    text-align: center;
+    margin: 0.5rem 0;
+}
