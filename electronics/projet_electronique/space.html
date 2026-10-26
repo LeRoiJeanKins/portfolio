@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Space Invaders</title>
+    <link rel="stylesheet" href="space.css">
+</head>
+<body>
+
+<h1>🚀 Space Invaders</h1>
+
+<!-- 🎮 FORMULAIRE OBLIGATOIRE -->
+<form id="formStart" onsubmit="startGame(event)">
+    <input type="text" id="nomJoueur" placeholder="Pseudo" />
+    <button type="submit">Jouer</button>
+</form>
+
+<button onclick="arreterJeu()">Stop</button>
+
+<p>
+Score : <span id="score">0</span> |
+Vies : <span id="vies">0</span> |
+Boucliers : <span id="shields">0</span>
+</p>
+
+<canvas id="jeu" width="600" height="400"></canvas>
+
+<h3>🏆 Top 10</h3>
+<ul id="scores"></ul>
+
+<script src="space.js"></script>
+</body>
+</html>

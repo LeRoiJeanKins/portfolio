@@ -1,0 +1,22 @@
+body {
+    text-align: center;
+    background: black;
+    color: white;
+    font-family: Arial;
+}
+
+canvas {
+    background: radial-gradient(circle, #111, #000);
+    border: 2px solid white;
+    margin-top: 10px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+input {
+    padding: 8px;
+}
