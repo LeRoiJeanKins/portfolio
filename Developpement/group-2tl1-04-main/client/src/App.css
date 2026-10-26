@@ -1,0 +1,57 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms, transform 0.2s ease;
+}
+
+/* On remplace le bleu/violet par défaut par le violet principal de ta palette */
+.logo:hover {
+  filter: drop-shadow(0 0 2em rgba(155, 107, 255, 0.7)); /* #9b6bff avec transparence */
+  transform: scale(1.05); /* Petit effet de zoom en plus au survol */
+}
+
+/* Pour le logo React (ou le 2ème logo), on utilise le violet plus clair de ta palette */
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em rgba(197, 139, 255, 0.7)); /* #c58bff avec transparence */
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* On transforme la simple "card" en jolie carte avec effet verre de ta DA */
+.card {
+  background: #ffffffcc;
+  backdrop-filter: blur(6px);
+  padding: 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(60, 40, 120, 0.18);
+  margin: 2rem auto;
+  display: inline-block; /* Pour que la carte s'adapte à son contenu */
+}
+
+/* On remplace le gris "#888" par la couleur "muted" de ta palette mauve */
+.read-the-docs {
+  color: #6a4a9a;
+  font-weight: 500;
+  margin-top: 2rem;
+}

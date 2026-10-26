@@ -1,0 +1,51 @@
+.inscription-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    background: #ffffffcc; /* Blanc semi-transparent */
+    backdrop-filter: blur(6px); /* Effet flou derrière la carte */
+    padding: 2.5rem 3rem;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(60, 40, 120, 0.18);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.inscription-container > h1 {
+    width: 100%;
+    border-bottom: 1px solid #d2bdf5;
+    padding-bottom: 15px;
+}
+
+.inscription-container > input {
+    font-family: inherit;
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid #d2bdf5;
+    background: #faf7ff;
+    font-size: 0.95rem;
+    color: #3b2a5c;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    box-sizing: border-box;
+}
+.inscription-container > button {
+    width: 100%;
+    border-bottom: 1px solid #d2bdf5;
+    padding-bottom: 15px;
+}
+.inscription-container > button:focus {
+    outline: none;
+    border-color: #9b6bff;
+    box-shadow: 0 0 0 3px rgba(155, 107, 255, 0.25); /* <--- C'est ça qui fait le halo violet/rose transparent */
+    background: #ffffff;
+}
+
+.inscription-container > p {
+    width: 100%;
+    border-top: 1px solid #d2bdf5;
+    padding-top: 15px;
+}
