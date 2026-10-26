@@ -1,0 +1,29 @@
+#voir l'ip d'un docker
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' php
+
+#commande pour cree une image (! a partir d un dossier)
+docker build -t nginx-l1-4 .
+
+#commande pour urn un docker avec emplacement 
+docker run -d \
+  --name web-server \
+  -p 8080:8080 \
+  -v $(pwd)/html:/var/www/html \
+  nginx-l1-4
+
+#supp un docker ( utile pour le recree apr changement)
+docker rm -f web-server
+
+#pour run une imagfe existante (par exemple l image officiel de php)
+docker run --name php --rm -d \
+  --mount type=bind,source=$(pwd)/html/www,target=/var/www/html/www \
+  php:fpm
+
+#pour lancer le docker compose 
+docker compose up -d --build
+
+#clear le docker
+docker compose down -v
+
+#relancer le docker
+docker compose up -d

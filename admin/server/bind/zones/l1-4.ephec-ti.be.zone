@@ -1,0 +1,31 @@
+$TTL 86400
+@   IN  SOA ns.l1-4.ephec-ti.be. admin.l1-4.ephec-ti.be. (
+        2026051014 ; Serial 
+        3600       ; Refresh
+        1800       ; Retry
+        604800     ; Expire
+        86400 )    ; Minimum TTL
+
+     IN  NS  ns.l1-4.ephec-ti.be.
+
+; --- MAIL ---
+@    IN  MX  10 mail.l1-4.ephec-ti.be.
+
+; --- Sécurité Email (SPF & DMARC) ---
+; 2.2.2. SPF : Autorise uniquement l'IP du MX à envoyer des mails
+@       IN  TXT "v=spf1 mx -all"
+
+; 2.2.4. DMARC : Indique quoi faire en cas d'échec SPF/DKIM (p=none pour observer au début)
+_dmarc  IN  TXT "v=DMARC1; p=none; rua=mailto:admin@l1-4.ephec-ti.be;"
+
+; --- Records A ---
+@    IN  A   91.134.137.237
+ns   IN  A   91.134.137.237
+www  IN  A   91.134.137.237
+blog IN  A   91.134.137.237
+mail IN  A   91.134.137.237
+
+; --- Clé pour le mail (DKIM) ---
+mail._domainkey IN      TXT     ( "v=DKIM1; h=sha256; k=rsa; "
+          "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqF6AUpjQptE6LYtp7ljkeA8k0FtbBs7L8hZ8JqKXRQREMvZ2i2tc2ttx/q6/jgZ+AMaGUVnijWWbGqbXFNBiQWQKHM7emWMkrPpnxE2QyjB84qGI9wDKQhhSLEK3vBQVZqhQNn4XqDdHmhBJsEOhFiEK0Rya9fwn3yWsgz4PO3n+4msEXa8ZrfAKWHMM/m689zLzcbSjjoCqij"
+          "Ef48P1d0UL8/HsMIOT7jceA/5OOpXbQ3oiinKF13ydFzrGRTrK4i0bLmqLC/EH8pL+wlKWyRhBQiUsKlbFD01Yrlz290VAOx6z9LDu5f7AiHcXnhzEOUTOFRPUNuYrwlAIRdQzlwIDAQAB" )  ; ----- DKIM key mail for l1-4.ephec-ti.be
