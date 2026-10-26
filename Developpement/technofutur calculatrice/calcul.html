@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>calculatrice</title>
+        <link href="css/css.css" rel="stylesheet">
+        <script src="js/js.js"></script>
+    </head>
+    <body>
+        <form name="calculatrice" id="calculatrice">
+            <div id="champ"></div>
+            <button type="button" id="boutton7" class="boutton" onclick="recuperer(this.id)">7</button>
+            <button type="button" id="boutton8" class="boutton" onclick="recuperer(this.id)">8</button>
+            <button type="button" id="boutton9" class="boutton" onclick="recuperer(this.id)">9</button>
+            <button type="button" id="bouttonSupp" class="boutton" onclick="supprimer()">supprimer</button>
+            <button type="button" id="bouttonR" class="boutton" onclick="reinitialiser()" >reset</button>
+            <button type="button" id="boutton4" class="boutton" onclick="recuperer(this.id)">4</button>
+            <button type="button" id="boutton5" class="boutton" onclick="recuperer(this.id)">5</button>
+            <button type="button" id="boutton6" class="boutton" onclick="recuperer(this.id)">6</button>
+            <button type="button" id="bouttonP" class="boutton" onclick="recuperer(this.id)">+</button>
+            <button type="button" id="bouttonM" class="boutton" onclick="recuperer(this.id)">-</button>
+            <button type="button" id="boutton1" class="boutton" onclick="recuperer(this.id)">1</button>
+            <button type="button" id="boutton2" class="boutton" onclick="recuperer(this.id)">2</button>
+            <button type="button" id="boutton3" class="boutton" onclick="recuperer(this.id)">3</button>
+            <button type="button" id="bouttonF" class="boutton" onclick="recuperer(this.id)">*</button>
+            <button type="button" id="bouttonD" class="boutton" onclick="recuperer(this.id)">/</button>
+            <button type="button" id="boutton0" class="boutton" onclick="recuperer(this.id)">0</button>
+            <button type="button" id="boutton." class="boutton" onclick="recuperer(this.id)">.</button>
+            <button type="button" id="bouttonEg" class="boutton" onclick="calculer()">=</button>
+        </form>
+    </body>
+</html>

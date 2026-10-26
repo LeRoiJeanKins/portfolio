@@ -1,0 +1,23 @@
+#calculatrice {
+    position: absolute;
+    left: 37%;
+    top:15%;
+    width: 25%;
+}
+#champ {
+    width:95%;
+    height: 75px;
+    text-align: right;
+    font-size: 45px;
+    border-style: solid;
+    border-color: black ;
+    border-width: 1px;
+}
+.boutton {
+    width: 75px;
+    height: 75px;
+    margin: 2px;
+}
+#bouttonEg {
+    margin-left : 168px;
+}

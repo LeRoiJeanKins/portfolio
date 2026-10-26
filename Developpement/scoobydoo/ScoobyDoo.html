@@ -1,0 +1,190 @@
+<!DOCTYPE>
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
+<!--******************************** scoobyDoo.css *******
+* Nom prénom 1 : .......................
+* Nom prénom 2 : .......................
+* Groupe       : 1T..
+********************************************************-->
+<head>
+ <meta charset=utf-8>
+ <title>Scooby Dooooooo</title>
+ <script src="js/SB_utils.js"></script> <!-- Fonctions utilitaires -->
+ <script src="js/SB_tabs.js"></script> <!-- Script qui gère le changement de tab -->
+ <script src="js/scoobyDoo.js"></script>
+ <link href="css/scoobyDoo.css" rel="styleSheet">
+</head> 
+<body>
+<main >
+ <div class="tab">
+      <button class="tablinks" id="sommaire" onclick="changerTab(this)">Sommaire</button>
+      <button class="tablinks" id="exemple" onclick="changerTab(this)">Exemples ancien sujet</button>
+      <button class="tablinks" id="tp10" onclick="changerTab(this)">TP10</button>
+      <button class="tablinks" id="tp11" onclick="changerTab(this)">TP11</button>
+      <button class="tablinks" id="tp12" onclick="changerTab(this)">TP12</button>
+ </div>
+
+ <!-- ---------- RESUME SITUATION ---------- -->
+ <section id="aff_sommaire" class="tabcontent">
+  <h2>Infos</h2>
+ <details OPEN><summary><h3>Uses Cases</h3></summary>
+  <aside>
+   Les uses cases se trouvent dans l'onglet [UC]
+   <a href="https://devweb.ephec.be/tp/1t/S2_data/data-tp10...13_%E2%9C%94%EF%B8%8FScoobyDoo_webAppli/scoobyDoo_summary.html#UC">
+    ici</a>
+     </aside>
+ </details>
+  <details OPEN><summary><h3>Modifs minimales à apporter aux monstres pour pouvoir générer les tables</h3></summary>
+   Les uses cases se trouvent dans l'onglet [DB]
+   <a href="https://devweb.ephec.be/tp/1t/S2_data/data-tp10...13_%E2%9C%94%EF%B8%8FScoobyDoo_webAppli/scoobyDoo_summary.html#DB">
+    ici</a>
+  </details>
+
+ </section>
+
+ <!-- ---------- EXEMPLE : VISITE DE VILLE ancien projet ---------- -->
+
+ <section id="aff_exemple" class="tabcontent">
+
+  <div id="encodageVisiteVille" class="formulaire">
+   <h2>Encodage des visites de villes</h2>
+   <form id="formAjoutTestCovid" action=# onsubmit='return ajouterVisiteVille(this);'>
+    <fieldset>
+     <legend>Enregistrer visite ville</legend>
+     <!-- Personne -->
+     <label for="persVisiteVille">Personne * : </label>
+     <select id="persVisiteVille" name="persVisiteVille" required>
+     </select>
+     <br>
+     <!-- Ville Visitée -->
+     <label for="villeVisitee">Ville visitée * : </label>
+     <select id="villeVisitee" name="villeVisitee" required>
+     </select>
+     <br>
+     <!-- date de visite -->
+     <label for="dateVisite">Date de visite * : </label>
+     <input type="date" id="dateVisite" name="dateVisite" required>
+     <br>
+     <!-- bouton validation -->
+     <input type="submit" id="EnregVisiteVille" value="Enregistrer la visite de ville">
+    </fieldset>
+   </form>
+
+  </div>
+
+  <div id="aff_maladesParVille">
+   <h2>Nombre de malades par ville</h2>
+    <p>Par ville,<br>
+     afficher le nombre de malades (testés positifs avec la date d'expiration du test après la date du jour)<br>
+     ayant visité la ville (date de visite dans le passé par rapport à la date du jour),<br>
+     lorsqu'il y en a plus de 1 cas.</p>
+    <div id="maladesParVille" class="affichage">
+     <table>
+      <thead>
+      <tr>
+       <th id="persFiltreTitreId">Code Postal</th>
+       <th id="persFiltreTitrePrenom">Nom Ville</th>
+       <th id="persFiltreTitreNom">Nombre cas positifs</th>
+      </tr>
+      </thead>
+      <tbody id="tbodyNbrMaladesParVille">
+      </tbody>
+     </table>
+    </div>
+  </div>
+ </section>
+
+ <!-------------------------------------------------------------------------------------------------------------->
+
+ <section id="aff_tp10" class="tabcontent">
+
+  <hr>
+  <select id='listeSe' onchange="afficherDonneeEpSerie()">
+
+  </select>
+  <ul id="listEp">
+
+  </ul>
+  <div class="bulleTexte" id="bulleTp10">
+
+  </div>
+ </section>
+
+ <!--                                            tp11                                                                -->
+
+ <section id="aff_tp11" class="tabcontent">
+  <hr>
+  <form id="formCraftMonstre">
+   <fieldset>
+    <legend id="craftMonstre">cree un MONSTRE</legend>
+
+    <label for="craftMonstre" >Nom : </label>
+    <input type="text" id="formTxt0" name="craftMonstre" required> <br>
+
+    <label for="craftMonstre"  >Type : </label>
+    <input type="text" id="formTxt1" name="craftMonstre" required> <br>
+
+    <label for="craftMonstre"  >Sous-type : </label>
+    <input type="text" id="formTxt2" name="craftMonstre" required> <br>
+
+    <label for="craftMonstre"  >Espece : </label>
+    <input type="text" id="formTxt3" name="craftMonstre" required> <br>
+
+    <input type="button" id="enregistrerMonstre" value="envoyer" onclick='return envoieInfo();'> <br>
+
+    <div id="epi?">
+     acutellement il n'y a pas d'épisode sélectionné
+    </div> <br>
+
+    <div id="msg">
+
+    </div>
+
+    <label for="craftMonstre" id="eff" >Effacer le Monstre : </label>
+    <input type="text" id="formTxtSupp" class="deDroite" name="craftMonstre" required> <br>
+
+    <input type="button" id="suppMonstre" value="supprimer" class="deDroite" onclick='return suppInfo();'>
+
+   </fieldset>
+
+
+   </form>
+  </section>
+
+<!---                                          TP12                                                                 --->
+  <section id="aff_tp12" class="tabcontent">
+
+   <br>
+    <div id="titre">
+     Page pour voir les feuilles de stats
+    </div>
+
+   <br>
+   <label for="bouttonSerie"> Voir les séries : </label>
+   <button type="button" id="bouttonSerie" onclick="return series()">Bouton!</button>
+
+   <br>
+   <label for="bouttonSerie"> Voir les Episodes par série : </label>
+   <button type="button" id="bouttonEpSerie" onclick="affSerie()">Bouton!</button>
+
+   <br>
+   <label for="bouttonSerie"> Voir les acteurs : </label>
+   <button type="button" id="bouttonActeur" onclick="acteur()">Bouton!</button>
+
+   <br>
+   <label for="bouttonSerie"> Voir les monstres : </label>
+   <button type="button" id="bouttonMonstre" onclick="monstre()">Bouton!</button>
+
+
+   <div class="bulleTexte" id="bulleTp12">
+
+   </div>
+   <br>
+   <br>
+   <div id="textEnv">
+
+   </div>
+
+  </section>
+ </main>
+ </body>
+ </html>
