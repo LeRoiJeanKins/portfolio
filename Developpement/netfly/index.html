@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>GIVEAWAYS!</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body onload="creeConcours()">
+ <header>
+    <a href="#accueil" onClick="buttonChangePage('accueil')">Home</a>
+    <a href="#fonctionnement" onClick="buttonChangePage('fonctionnement')">How it works</a>
+    <a href="#script" onClick="buttonChangePage('script')">Automation</a>
+    <a href="#a-propos" onClick="buttonChangePage('a-propos')">About us</a>
+    <a href="#mentions" onClick="buttonChangePage('mentions')">Terms of use</a>
+ </header>
+
+ <!--                                           sectionConc                                                               --->
+
+ <section id="accueil">
+  <div class="resultat-container">
+      <h2 id="titre">giveways list</h2>
+    <div id="resultat">
+    </div>
+    <p style="font-size: 0.9em; color: gray;">
+      Some links may be affiliate links.
+    </p>
+  </div>
+ </section>
+
+ <!--                                               sectionScript                                                           --->
+
+ <section id="script">
+   <div class="resultat-container">
+   <div style="font-weight:bold">
+     To automate contests, copy and paste this script into your chrome extension <a href="https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=fr">tamperMonkey</a> :
+    </div>
+      <br> You must enable user scripts, access to file URLs, and be using Google Chrome.
+     <br><br>
+    <pre id="pasMoi">
+// ==UserScript==
+// @name         Instant Gaming Auto Giveaway
+// @author       LeRoiJeanKins
+// @description  participer automatiquements aux concours ig
+// @version      1.0
+// @match        *://www.instant-gaming.com/*
+// @match        https://game-giveaway-list.netlify.app
+// @match        http://localhost:*/*
+// @run-at       document-idle
+// @grant        GM_registerMenuCommand
+// @grant GM_openInTab
+// @license      MIT
+// ==/UserScript==
+
+// Ce script est une version modifiée du script original de enzomtp,
+// adapté et amélioré par LeRoiJeanKins
+// lien vers le github originel  https://github.com/enzomtpYT/InstantGamingGiveawayList
+
+(function() {
+  "use strict";
+
+
+    if (!document.location.href.endsWith('?igr=LeRoiJeanKins') && document.location.href.startsWith('https://www.instant-gaming.com/')) {
+      if(document.location.href.includes("?igr=")){
+        let index
+        let finDuLien
+        index = document.location.href.indexOf("?")
+        finDuLien = document.location.href.slice(index)
+        document.location.href = document.location.href.replace(finDuLien,'?igr=LeRoiJeanKins')
+
+      }
+      else{
+        document.location.href = document.location.href+'?igr=LeRoiJeanKins'
+      }
+    }
+
+  function openInNewTab(url) {
+       window.open(url, '_blank');
+
+  }
+
+  function participate(){
+    // Get the participate button element.
+    const participate = document.querySelector("button.button.validate");
+    // Click on participate if it exists.
+    if (participate !== null) {
+      participate.click();
+      location.reload();
+    }
+  }
+
+  function socials(){
+    // Get all the socials
+    const socials = document.querySelectorAll("a.button.reward")
+    // Click on each socials
+    socials.forEach((e) => e.click())
+  }
+
+  function giveawayList(){
+    // Get the giveaway list
+    const giveawayList = document.querySelectorAll("a.giveaway")
+    // Click on the giveaway list
+    giveawayList.forEach((e) => e.click())
+  }
+
+  function openall() {
+      const links = document.querySelectorAll("#resultat > a");
+      links.forEach((link, index) => {
+          setTimeout(() => {
+              GM_openInTab(link.href, { active: false }); 
+          }, index * 2500);
+      });
+  }
+  if (document.location.hostname === "www.instant-gaming.com") {
+          setTimeout(() => {
+              participate();
+              socials();
+               window.close();
+          }, 1500);
+  }
+
+
+
+  // Register the menu command
+  GM_registerMenuCommand("Participate", participate);
+  GM_registerMenuCommand("Socials", socials);
+  GM_registerMenuCommand("Giveaway List", giveawayList);
+  GM_registerMenuCommand("Open ALL Links", openall);
+  participate();
+  socials();
+
+})();
+
+
+    </pre>
+    <br>
+   </div>
+ </section>
+
+ <!--                                               sectionFonctionnement                                                           --->
+
+ <section id="fonctionnement">
+   <div class="resultat-container">
+<div style="font-weight: bold; font-size: 1.2em;">
+  How the site works:
+</div>
+<br>
+<pre style="white-space: pre-wrap; font-family: inherit;">
+
+This site is a personal project that lists Instant Gaming giveaways I’ve found.
+
+To participate, simply click on each image. It will open the giveaway link in a new tab where you can join directly.
+
+The giveaway colors indicate your click status:
+🟩 Green: you've already clicked this link before.
+🟦 Blue: you clicked it during this session.
+🟥 Red: you've never clicked it before.
+
+If you want to enter all giveaways automatically, go to the "Automation" section and follow the steps.
+Once the script is installed via the TamperMonkey extension, a button labeled "Open Links" will appear, allowing you to automatically enter all giveaways (make sure to allow pop-ups on this site).
+
+I'll try to update this page frequently.
+
+</pre>
+
+   </div>
+ </section>
+
+ <!--                                               sectionA-propos                                                           --->
+ <section id="a-propos">
+   <div class="resultat-container">
+     <div style="font-weight:bold">
+       About this site :
+     </div>
+     <pre>
+
+Welcome to this site, your reliable and automated source for discovering the best giveaways and contests online. This project was created to make it easier for you to find and participate in free offers available on the web.
+
+I regularly compile and update a list of quality giveaways to provide you with a simple, fast, and enjoyable experience. My goal is to help you never miss an opportunity and fully enjoy all available offers.
+
+This is a personal and independent project, using an automated script that collects information to save you time.
+
+Feel free to contact me with any questions or suggestions via the email address provided in the Legal Notice section.
+     </pre>
+   </div>
+ </section>
+
+ <!--                                               sectionMentions                                                          --->
+
+ <section id="mentions">
+   <div class="resultat-container">
+     <div style="font-weight:bold">
+     legal information:
+     </div>
+     <pre>
+
+Website Owner:
+This website is operated by an individual for informational and personal use.
+
+Contact:
+Email: contactsite10521351@gmail.com
+
+Hosting:
+This site is hosted by Netlify, Inc.,
+44 Montgomery Street, Suite 300,
+San Francisco, CA 94104, USA.
+
+Intellectual Property:
+All logos, images, and content on this site belong to their respective owners.
+This website does not claim ownership over third-party trademarks or copyrighted materials.
+
+Affiliate Disclosure:
+Some links on this site may be affiliate links (e.g., Instant Gaming).
+If you click and make a purchase, I may receive a small commission at no additional cost to you.
+
+Disclaimer:
+This website is not affiliated with Instant Gaming or any other external services mentioned.
+Participation in giveaways is at your own discretion. No guarantee is provided regarding results.
+
+Data Privacy:
+This site does not collect or store personal data.
+No cookies or tracking technologies are used beyond those required by the hosting platform.
+
+Last Updated: 07-21-2025
+     </pre>
+   </div>
+ </section>
+
+</body>
+</html>

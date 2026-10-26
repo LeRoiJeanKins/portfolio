@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://game-giveaway-list.netlify.app/sitemap.xml
